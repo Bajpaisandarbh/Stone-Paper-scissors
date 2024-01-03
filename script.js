@@ -22,4 +22,38 @@ function selectchoice() {
     opponent = choices[Math.floor(Math.random() * 3)];
     document.getElementById('opponent-choice').src = opponent + ".png";
 
+    // check for winner
+    if (you == opponent){
+        yourscore += 1;
+        opponentscore += 1;
+    }
+    else{
+        if (you == "stone") {
+        if(opponent == "scissor") {
+            yourscore += 1;
+        }
+        else if(opponent == "paper") {
+            opponentscore += 1;
+        }
+    }
+    else if (you == "paper") {
+        if(opponent == "stone") {
+            yourscore += 1;
+        }
+        else if(opponent == "scissor") {
+            opponentscore += 1;
+        }
+    }
+    else if (you == "scissor") {
+        if(opponent == "paper") {
+            yourscore += 1;
+        }
+        else if(opponent == "stone") {
+            opponentscore += 1;
+        }
+    }
 } 
+
+document.getElementById("your-score").innerText = yourscore;
+document.getElementById("opponent-score").innerText = opponentscore;
+}
